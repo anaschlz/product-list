@@ -20,7 +20,7 @@ export class DialogComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
-      description: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(200)]],
+      description: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
       price: [0, [Validators.required, Validators.min(.01)]]
     });
   }
@@ -52,7 +52,9 @@ export class DialogComponent implements OnInit {
     const payload = this.form.value;
     console.log('Payload:', payload);
 
+    // Verifica se o ID existe
     if (this.data.id) {
+      // Se o ID existir, está editando um produto existente
       this.crudService.put(this.data.id, payload).subscribe({
         next: (result) => {
           this.loading = false;
@@ -64,6 +66,7 @@ export class DialogComponent implements OnInit {
         }
       });
     } else {
+      // Se o ID não existir, está criando um novo produto
       this.crudService.post(payload).subscribe({
         next: (result) => {
           this.loading = false;

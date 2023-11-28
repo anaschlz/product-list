@@ -10,7 +10,7 @@ import { CrudService } from '../services/crud.service';
 })
 export class CrudComponent {
   loading = false;
-  cols = ['name', 'description', 'price', 'actions'];
+  cols = ['id','name', 'description', 'price', 'actions'];
   data = [
     {
       id: '0000-0000-0000-0001',
