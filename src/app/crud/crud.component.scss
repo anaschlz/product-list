@@ -1,0 +1,17 @@
+[data-component="crud"] {
+  padding: 50px 0;
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    button {
+      margin: 0 5px;
+    }
+  }
+}
